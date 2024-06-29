@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/<your-repo>/spring-petclinic.git'
-                sh 'mvn clean install'
+                git 'https://github.com/ yashpal2035//spring-petclinic.git'
+                sh ' clean install'
             }
         }
         stage('Test') {
@@ -25,7 +25,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                    docker.withRegistry('https://hub.docker.com/repository/docker/yashpal2035/spring-petclinic/general', 'dckr_pat_erk91jk4Qowr7LBJP77bsYRq1As') {
                         docker.image('spring-petclinic').push('latest')
                     }
                 }
